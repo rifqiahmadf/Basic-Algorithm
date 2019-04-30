@@ -1,0 +1,29 @@
+Program CekBilangan;
+uses crt;
+const
+  konstanta1 = 'bilangan1 tidak habis dibagi 2 dan lebih besar dari bilangan2';
+  konstanta2 = 'bilangan1 <= bilangan2 atau habis dibagi dengan 2 ';
+  phi = 3.14;
+var
+  bilangan1, bilangan2 :
+  luas1 :
+  luas2 :
+begin
+  clrscr;
+  write('masukkan bilangan pertama: ');
+  readln(bilangan1);
+  write('masukkan bilangan kedua: ');
+  readln(bilangan2);
+  if (( ) and ( )) then
+    begin
+      writeln(konstanta1);
+      luas1 := phi*bilangan1*bilangan1;
+      writeln('luas1 = ', luas1);
+    end
+  else
+    begin
+      writeln(konstanta2);
+      luas2 := bilangan2*bilangan2;
+      writeln('luas2 = ', luas2);
+    end;
+end.

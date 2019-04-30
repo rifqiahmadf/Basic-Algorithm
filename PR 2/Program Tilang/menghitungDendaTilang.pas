@@ -1,0 +1,67 @@
+program menghitungDendaTilang;
+//I.S user menginputkan kode dan slip tilang.
+//F.S program akan menentukan apakah user mendapatkan denda tilang atau ikut sidang.
+
+uses crt;
+
+type
+        Denda = (Rp50000, Rp100000, Rp500000);
+        //Merupakan tipe enumerated.
+
+var
+        besar_denda : Denda;
+        //Men-assign tipe enumerated kedalam variable.
+
+        kode, slip_tilang, nominal : integer;
+
+BEGIN
+        clrscr;
+        write('Masukan kode pelanggaran: ');
+        readln(kode);
+        write('Masukan kode slip tilang: ');
+        readln(slip_tilang);
+
+        if((kode in [0..2]) and (slip_tilang in [1..2])) then
+        //Merupakan conditional statement jika variable kode dan slip_tilang terdapat
+        //didalam kumpulan integer [0,1,2] dan [1,2].
+
+                begin
+                        besar_denda := Denda(kode);
+                        //Variable besar_denda akan di-assign oleh data dari Denda
+                        // [0] = Rp50000, [1] = Rp100000, [2] = Rp500000
+
+                        if (besar_denda = Rp50000) then
+                        //Conditional statement mengecek isi variable besar_denda
+                        //= Rp50000. bukan = 'Rp50000' karena merupakan data enumerated
+                        //bukan string.
+                                begin
+                                        nominal := 50;
+                                end
+                                //Jika dibawah baris suatu statement terdapat else atau else if
+                                //maka jangan gunakan titik koma ( ; ) tepat sebelum else atau else if.
+
+                        else if (besar_denda = Rp100000) then
+                                begin
+                                        nominal := 100;
+                                end
+                        else
+                                begin
+                                        nominal := 500;
+                                end;
+                        writeln('Besar denda yang harus dibayarkan = Rp',nominal,'ribu');
+                        if (slip_tilang = 1) then
+                                begin
+                                        write('Anda harus ikut sidang tilang.');
+                                end
+                        else
+                                begin
+                                        write('Anda mengaku bersalah.');
+                        end
+                end
+        else
+                begin
+                        write('Salah memasukkan kode.');
+                end;
+readln;
+END.
+
